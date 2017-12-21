@@ -1,0 +1,40 @@
+html {
+	font-family: verdana arial;
+	font-style: normal;
+	text-decoration: none;
+	color: black;
+	position: relative;
+	text-align: center;
+	background-image: url(https://wallpaperlayer.com/img/2015/9/abstract-orange-wallpaper-1450-1583-hd-wallpapers.jpg); 
+	opacity: 85%;
+	background-color: none;
+}
+
+header {
+	font-style: italic;
+	border-bottom: solid;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+}
+
+main {
+	margin: 8%;
+}
+
+input {
+	padding: 8px;
+	margin: 5px;
+}
+
+footer {
+	position: relative;
+	float: bottom;
+	margin-top: 25%;
+}
+
+input:visited {
+	color: purple;
+}
