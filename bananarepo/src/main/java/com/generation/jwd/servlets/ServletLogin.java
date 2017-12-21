@@ -34,10 +34,10 @@ import com.generation.jwd.beans.User;
 		 */
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			User loginUser = new User();
-			loginUser.setEmail(request.getParameter("email"));//gets a parameter from form input email when submit
-			loginUser.setPassword(request.getParameter("password"));//gets a parameter from form input password when submit
-			
-			boolean error = false;
+			// gets a parameter from form input email when submit
+			loginUser.setEmail(request.getParameter("email"));
+			// gets a parameter from form input password when submit
+			loginUser.setPassword(request.getParameter("password"));
 			
 			User fernando = new User();
 			fernando.setEmail("fernando1@hotmail.com");
@@ -61,13 +61,17 @@ import com.generation.jwd.beans.User;
 			
 			User[] userArray = {fernando, daniel, joseManuel, bibiana, rodrigo};
 			HttpSession mysession = (HttpSession)request.getSession(); // inits session on user_home
+			boolean error = false;
 			
-			for (int i = 0; i < userArray.length; i++)
-	            if (loginUser.getEmail() == userArray[i].getEmail() && loginUser.getPassword() == userArray[i].getPassword()) {
-	                //if input email & password = userArray email & password, go to user_home, else redirects again to login.jsp + error msg
-	             // inits session on user_home
+			for (int i = 0; i < userArray.length; i++) {
+				// if input email & password = userArray email & password, go to user_home, 
+            	// else redirects again to login.jsp + error msg
+	            if (loginUser.getEmail() == userArray[i].getEmail() && loginUser.getPassword() 
+	            		== userArray[i].getPassword()) {
+	                
+	            // inits session on user_home
 	                request.getRequestDispatcher("user_home.jsp").forward(request, response); // send us to user_home.jsp
-	                response.sendRedirect("/homeServlet"); // change ServletLogin to homeServlet
+	                //response.sendRedirect("/homeServlet"); // change ServletLogin to homeServlet
 	                mysession.removeAttribute("error"); //only if you failed to put correct email & password
 	                mysession.setAttribute ("identified _user", userArray[i]);
 	                break;
@@ -82,3 +86,4 @@ import com.generation.jwd.beans.User;
 	            }
 	        }
 	    }
+}
